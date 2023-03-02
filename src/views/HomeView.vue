@@ -1,9 +1,9 @@
 <script setup>
-import Aprendendo from '../components/Aprendendo.vue';
+
 </script>
 
 <template>
   <main>
-    <Aprendendo />
+    aaaaaaaa
   </main>
 </template>
