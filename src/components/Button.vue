@@ -15,7 +15,7 @@
         text-transform: uppercase;
         border: none;
         border-radius: 4px;
-        background-color: #ca2a2a;
+        background-color: #b81f1f;
         color: #fff;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out;

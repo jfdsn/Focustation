@@ -6,13 +6,13 @@
 </template>
 
 <script setup>
-    import { onMounted, ref } from 'vue';
+    import { onBeforeMount, ref } from 'vue';
     import Button from './Button.vue';
 
     const catUrl = ref(''); 
 
-    onMounted(() => {
-        getCat();
+    onBeforeMount(async() => {
+        await getCat();
     });
 
     const getCat = async() => {
