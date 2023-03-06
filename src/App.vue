@@ -1,7 +1,9 @@
 <template>
   <div class="grid-container">
-    <div class="timer-item">aaaaaaaaaaaaaaaaaa Div do Timer</div>
-    <ScheduleList class="schedule-item" />
+    <div class="left-item">
+      <Timer class="timer-box" />
+      <ScheduleList class="schedule-box" />
+    </div>
     <div class="right-item">
       <CatGenerator />
       <Video />
@@ -13,37 +15,43 @@
   import Video from './components/Video.vue';
   import CatGenerator from './components/CatGenerator.vue';
   import ScheduleList from './components/ScheduleList.vue';
+  import Timer from './components/Timer.vue';
 </script>
 
 <style scoped>
   .grid-container {
     display: grid;
     grid-template-areas: 
-    'timer timer direita'
-    'schedule schedule direita'
-    'schedule schedule direita';
+    'esquerda esquerda direita'
+    'esquerda esquerda direita'
+    'esquerda esquerda direita';
     justify-items: end;
-    gap: 50px;
+    gap: 10px;
+    height: 100%;
   }
 
   .right-item {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 64px;
+    row-gap: 60px;
     grid-area: direita;
   }
 
-  .timer-item {
-    grid-area: timer;
-    background-color: aqua;
+  .left-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    height: 200px;
+    height: 100%;
+    grid-area: esquerda;
   }
 
-  .schedule-item {
-    grid-area: schedule;
-    background-color: blueviolet;
+  .timer-box {
+    min-height: 100px;
+  }
+
+  .schedule-box {
     width: 100%;
   }
 

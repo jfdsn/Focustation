@@ -1,5 +1,5 @@
 <template>
-    <li class="container">
+    <li class="li-container">
         <p>{{ title }}</p>
         <Button title="Remover" @click-function="$emit('remove')"/>
     </li>
@@ -12,7 +12,7 @@
 </script>
 
 <style scoped>
-    .container {
+    .li-container {
         display: flex;
         flex-direction: row;
         margin-bottom: 2px;
@@ -21,7 +21,6 @@
     }
 
     p {
-      min-width: 25%;
-      color: black;  
+      min-width: 25%; 
     }
 </style>

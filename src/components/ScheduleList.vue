@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="schedule-list-container">
         <div class="input-container">
             <Input type="text" v-model="newSchedule" placeholder="Adicionar nova tarefa..." />
             <Button title="Salvar" @click-function="saveSchedule" />    
@@ -36,7 +36,7 @@
 </script>
 
 <style scoped>
-    .container {
+    .schedule-list-container {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -48,9 +48,8 @@
     }
     .list-area {
         padding: 16px;
-        border-radius: 4px;
-        background-color: rgb(191, 217, 240);
-        min-height: 88%;
+        width: 100vh;
+        min-height: 340px;
     }
 </style>
 

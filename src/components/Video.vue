@@ -42,5 +42,9 @@
         max-width: 300px;
         gap: 6px;
     }
+
+    iframe {
+        border-radius: 4px;
+    }
 </style>
   
