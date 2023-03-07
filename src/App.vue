@@ -1,8 +1,8 @@
 <template>
   <div class="grid-container">
     <div class="left-item">
-      <Timer class="timer-box" />
-      <ScheduleList class="schedule-box" />
+      <Timer />
+      <ScheduleList />
     </div>
     <div class="right-item">
       <CatGenerator />
@@ -45,14 +45,6 @@
     width: 100%;
     height: 100%;
     grid-area: esquerda;
-  }
-
-  .timer-box {
-    min-height: 100px;
-  }
-
-  .schedule-box {
-    width: 100%;
   }
 
   @media (min-width: 1024px) {

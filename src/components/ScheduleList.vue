@@ -40,6 +40,8 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        border-top: 1px groove #f8f8f8;
+        padding-top: 10px;
     }
     .input-container {
         display: flex;

@@ -1,7 +1,7 @@
 <template>
     <li class="li-container">
         <p>{{ title }}</p>
-        <Button title="Remover" @click-function="$emit('remove')"/>
+        <Button title="-" @click-function="$emit('remove')"/>
     </li>
 </template>
 

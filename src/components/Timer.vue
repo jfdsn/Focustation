@@ -17,7 +17,7 @@
   
     const pomodoroDuration = 45 * 60; // 45 minutes in seconds
     const restDuration = 15 * 60; // 15 minutes in seconds
-
+    
     const timeElapsed = ref(0);
     const isTimerRunning = ref(false);
     const isRestRunning = ref(false);
@@ -26,6 +26,10 @@
     const formattedTime = ref('00:00');
     const myAudio = ref(null);
     
+    onMounted(() => {
+      myAudio.value.load();
+    });
+ 
     const startTimer = () => {
         timerTitle.value = 'Work';
         isTimerRunning.value = true;
@@ -41,7 +45,6 @@
     const startRest = () => {
         timerTitle.value = 'Rest';
         isRestRunning.value = true;
-        isRestStarted.value = true;
     };
 
     watch(timeElapsed, (newValue) => {
@@ -53,10 +56,6 @@
     const playAudio = () => {
         myAudio.value.play();
     };
-
-    onMounted(() => {
-      myAudio.value.load();
-    });
 
     setInterval(() => {
         if (isTimerRunning.value) {

@@ -15,13 +15,13 @@
         text-transform: uppercase;
         border: none;
         border-radius: 4px;
-        background-color: #b81f1f;
-        color: #fff;
+        background-color: #d14f04;
+        color: #f8f8f8;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out;
     }
 
     button:hover {
-        background-color: #6d0e0e;
+        background-color: #963903;
     }
 </style>
