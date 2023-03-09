@@ -19,12 +19,19 @@
     import Input from './Input.vue';
     import Button from './Button.vue';
     import ScheduleItem from './ScheduleItem.vue';
-    import { ref } from 'vue';
+    import { onMounted, ref, watch } from 'vue';
 
     const newSchedule = ref('');
     const scheduleList = ref([]);
     
     let id = 1;
+
+    onMounted(() => {
+        if(localStorage.getItem('list')) {
+            scheduleList.value = JSON.parse(localStorage.getItem('list'));
+        }     
+        if(localStorage.getItem('id')) id = localStorage.getItem('id');
+    });
 
     const saveSchedule = () => {
         scheduleList.value.push({
@@ -33,6 +40,11 @@
         
         newSchedule.value = '';
     };
+
+    watch(scheduleList, (newValue) => {
+        localStorage.setItem('list', JSON.stringify(newValue));
+        localStorage.setItem('id', id);
+    }, {deep: true});
 </script>
 
 <style scoped>
@@ -40,8 +52,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        border-top: 1px groove #f8f8f8;
-        padding-top: 10px;
+        padding-top: 30px;
     }
     .input-container {
         display: flex;

@@ -9,21 +9,30 @@
 </template>
   
 <script setup>
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
   import Button from './Button.vue';
   import Input from './Input.vue';
 
-  const videoUrl = ref('https://www.youtube.com/embed/jfKfPfyJRdk');// default video URL
+  const videoUrl = ref('https://www.youtube-nocookie.com/embed/jfKfPfyJRdk');// default video URL
   const newVideoUrl= ref('');
 
+  onMounted(()=> {
+    if(localStorage.getItem('videoUrl')) videoUrl.value = localStorage.getItem('videoUrl'); 
+  });
+  
   function getVideoId() {
-      const urlParams = new URLSearchParams(new URL(newVideoUrl.value).search);
-      return urlParams.get('v');
+    const urlParams = new URLSearchParams(new URL(newVideoUrl.value).search);
+    return urlParams.get('v');
   };
   
   function updateVideo() {
-      const videoId = getVideoId();
-      videoUrl.value = `https://www.youtube.com/embed/${videoId}`
+    try {
+        const videoId = getVideoId();
+        videoUrl.value = `https://www.youtube-nocookie.com/embed/${videoId}`
+        localStorage.setItem('videoUrl', videoUrl.value);
+    } catch (error) {
+        alert("Url inválida!");
+    }
   };
 </script>
 

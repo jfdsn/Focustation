@@ -19,8 +19,4 @@
         gap: 10px;
         font-size: 16px;
     }
-
-    p {
-      min-width: 25%; 
-    }
 </style>

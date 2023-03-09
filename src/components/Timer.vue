@@ -42,6 +42,8 @@
     
     onMounted(() => {
       myAudio.value.load();
+      if(localStorage.getItem('work')) work.value = localStorage.getItem('work');
+      if(localStorage.getItem('rest')) rest.value = localStorage.getItem('rest');
     });
  
     const startTimer = () => {
@@ -69,10 +71,12 @@
 
     watch(work, (newValue) => {
         pomodoroDuration.value = newValue * 60;
+        localStorage.setItem('work', newValue);
     });
 
     watch(rest, (newValue) => {
         restDuration.value = newValue * 60;
+        localStorage.setItem('rest', newValue);
     });
     
     const playAudio = () => {
@@ -122,6 +126,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px groove #f8f8f8;
+        padding-bottom: 10px;
         gap: 60px;
     }
 
