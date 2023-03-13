@@ -1,3 +1,6 @@
+<!-- 
+  - Simples componente de button que recebe as Props 'title' e 'click-function'.
+ -->
 <template>
   <button @click="$emit('click-function')">{{ title }}</button>
 </template>

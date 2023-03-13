@@ -1,8 +1,13 @@
+<!--
+  - Composto pela área de input de dados que são inseridos em um array
+  - e os dados deste são renderizados em uma lista logo abaixo e de
+  - forma dinâmica.
+ -->
 <template>
   <div class="schedule-list-container">
     <div class="input-container">
       <Input type="text" v-model="newSchedule" placeholder="Adicionar nova tarefa..." />
-      <Button title="Salvar" @click-function="saveSchedule" />
+      <Button title="Save" @click-function="saveSchedule" />
     </div>
     <div class="list-area">
       <ScheduleItem
@@ -66,7 +71,13 @@ watch(
 }
 .list-area {
   padding: 16px;
-  width: 100vh;
-  min-height: 340px;
+  width: 100%;
+}
+
+@media (max-width: 850px) {
+  .schedule-list-container {
+    border-bottom: 1px groove #f8f8f8;
+    padding-bottom: 10px;
+  }
 }
 </style>

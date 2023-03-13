@@ -1,8 +1,13 @@
+<!--
+  - Renderiza um video do youtube em um iframe baseado na URL default.
+  - O input é responsável por trocar o vídeo apresentado ao inserir uma
+  - nova URL válida.
+ -->
 <template>
   <div class="container">
     <div class="inputBox">
       <Input type="text" v-model="newVideoUrl" placeholder="YouTube video URL" />
-      <Button title="Trocar" @click-function="updateVideo" />
+      <Button title="Change" @click-function="updateVideo" />
     </div>
     <iframe :src="videoUrl" width="300" height="200" frameborder="0"></iframe>
   </div>

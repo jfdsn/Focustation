@@ -1,3 +1,9 @@
+<!-- 
+  - Componente com a função de um timer baseado na técnica de pomodoro.
+  - Possuí um timer que alterna de Work para Rest ao terminar o tempo,
+  - tocando um audio de sinalização. O tempo de work e rest são
+  - customizaveis pelo input de type range.
+ -->
 <template>
   <div class="pomodoro-container">
     <div class="timer-container">
@@ -5,10 +11,10 @@
       <p>{{ formattedTime }}</p>
       <Button
         v-if="!isTimerRunning && !isRestRunning"
-        title="Iniciar"
+        title="Start"
         @click-function="startTimer"
       />
-      <Button v-if="isTimerRunning || isRestRunning" title="Resetar" @click-function="resetTimer" />
+      <Button v-if="isTimerRunning || isRestRunning" title="Reset" @click-function="resetTimer" />
     </div>
 
     <div class="range-container">
@@ -145,7 +151,7 @@ p {
   align-items: center;
   border-bottom: 1px groove #f8f8f8;
   padding-bottom: 10px;
-  gap: 60px;
+  gap: 4rem;
 }
 
 .timer-container,

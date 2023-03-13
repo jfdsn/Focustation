@@ -1,3 +1,8 @@
+<!-- 
+  - Componente simples que retorna um input, o estilo para os types
+  - 'text', 'email' e 'password' e recebe a Prop v-model que irá 
+  - armazenar o valor inserido no input.
+ -->
 <template>
   <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
 </template>
@@ -11,8 +16,8 @@ defineEmits(['update:modelValue'])
 input[type='text'],
 input[type='email'],
 input[type='password'] {
-  min-width: 66%;
-  padding: 10px;
+  min-width: 60%;
+  padding: 8px;
   font-size: 14px;
   border: 1px solid transparent;
   border-bottom: 1px solid #d14f04;

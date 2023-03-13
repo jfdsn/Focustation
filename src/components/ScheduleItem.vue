@@ -1,3 +1,8 @@
+<!-- 
+  - Retorna o elemento de uma lista contendo o title e um button 
+  - com a função de remover o elemento. Recebe as Props 'title' e
+  - uma função '@remove'.
+ -->
 <template>
   <li class="li-container">
     <p>{{ title }}</p>

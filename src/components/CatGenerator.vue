@@ -1,5 +1,10 @@
+<!-- 
+  - Componente responsável por renderizar uma imagem baseado no consumo
+  - de uma API(random cat). Composto por uma tag img e um botão com a
+  - função de buscar uma nova imagem na API.
+ -->
 <template>
-  <div class="container">
+  <div class="cat-container">
     <img class="cat-img" :src="catUrl.file" />
     <Button title="Meow!" @click-function="getCat"></Button>
   </div>
@@ -26,7 +31,7 @@ const getCat = async () => {
 </script>
 
 <style scoped>
-.container {
+.cat-container {
   display: flex;
   flex-direction: column;
   max-width: 300px;
@@ -34,8 +39,14 @@ const getCat = async () => {
 }
 
 .cat-img {
-  width: 300px;
-  height: 200px;
+  max-width: 300px;
+  max-height: 200px;
   border-radius: 4px;
+}
+
+@media (max-width: 850px) {
+  .cat-container {
+    flex-direction: column-reverse;
+  }
 }
 </style>
