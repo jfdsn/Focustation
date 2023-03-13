@@ -1,6 +1,6 @@
 <!-- 
   - Componente com a função de um timer baseado na técnica de pomodoro.
-  - Possuí um timer que alterna de Work para Rest ao terminar o tempo,
+  - Possui um timer que alterna de Work para Rest ao terminar o tempo,
   - tocando um audio de sinalização. O tempo de work e rest são
   - customizaveis pelo input de type range.
  -->
