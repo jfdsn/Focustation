@@ -1,5 +1,11 @@
 <h1 align="center">Focustation</h1>
 
+<p align="center">
+    <img src="https://img.shields.io/badge/license-MIT-green">
+    <img src="https://img.shields.io/badge/npm-v9.5.1-blue">
+    <img src= "https://img.shields.io/badge/vue-3-blue">
+</p>
+
 ## Descrição
 O Focustation é um aplicativo simples desenvolvido com Vue.js, Composition API e CSS3. Seu objetivo é ajudar os usuários a se concentrarem em seus estudos/trabalhos, criando uma estação de trabalho. Ele inclui um timer baseado na técnica Pomodoro, uma área para listar tarefas, outra área com um vídeo do YouTube e um gerador de imagens de gatinhos, usando uma API de terceiros.
 
@@ -40,8 +46,14 @@ A aplicação irá abrir na porta 5173. Acesse localhost:5173 para visualizá-la
 - `Vite`
 - `npm`
 
-##  Créditos
+## :link: Créditos
 
+- `Random.cat Api`: https://aws.random.cat/meow
+- `Documentação Vue`: https://vuejs.org/guide/introduction.html
+
+## :smile: Autor
+
+- `Jônathan Faria`
 
 
 
