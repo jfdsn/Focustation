@@ -1,4 +1,4 @@
-<a href="https://focustation.netlify.app/"><h1 align="center">Focustation</h1></a>
+<h1 align="center"><a href="https://focustation.netlify.app/">Focustation</a></h1>
 
 <p align="center">
     <img src="https://img.shields.io/badge/license-MIT-green">
