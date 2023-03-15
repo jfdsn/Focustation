@@ -5,7 +5,8 @@
  -->
 <template>
   <div class="cat-container">
-    <img class="cat-img" :src="catUrl.file" />
+    <img v-if="catUrl == 'error'" class="cat-img" src="./imgs/cat-error.png" />
+    <img v-else class="cat-img" :src="catUrl.file" />
     <Button title="Meow!" @click-function="getCat"></Button>
   </div>
 </template>
@@ -25,6 +26,7 @@ const getCat = async () => {
     const response = await fetch('https://aws.random.cat/meow')
     catUrl.value = await response.json()
   } catch (error) {
+    catUrl.value = 'error'
     console.log('Algo errado ocorreu: ' + error)
   }
 }
@@ -40,7 +42,7 @@ const getCat = async () => {
 
 .cat-img {
   max-width: 300px;
-  max-height: 200px;
+  height: 200px;
   border-radius: 4px;
 }
 

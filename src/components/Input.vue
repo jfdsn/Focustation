@@ -4,12 +4,16 @@
   - armazenar o valor inserido no input.
  -->
 <template>
-  <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
+  <input
+    :value="modelValue"
+    @keydown.enter="$emit('on-press-enter')"
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
 </template>
 
 <script setup>
 defineProps(['modelValue'])
-defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue', 'on-press-enter'])
 </script>
 
 <style scoped>

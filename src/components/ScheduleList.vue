@@ -6,7 +6,12 @@
 <template>
   <div class="schedule-list-container">
     <div class="input-container">
-      <Input type="text" v-model="newSchedule" placeholder="Adicionar nova tarefa..." />
+      <Input
+        type="text"
+        v-model="newSchedule"
+        @on-press-enter="saveSchedule"
+        placeholder="Add new task..."
+      />
       <Button title="Save" @click-function="saveSchedule" />
     </div>
     <div class="list-area">

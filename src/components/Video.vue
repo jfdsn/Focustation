@@ -6,10 +6,15 @@
 <template>
   <div class="container">
     <div class="inputBox">
-      <Input type="text" v-model="newVideoUrl" placeholder="YouTube video URL" />
+      <Input
+        type="text"
+        v-model="newVideoUrl"
+        @on-press-enter="updateVideo"
+        placeholder="YouTube video URL"
+      />
       <Button title="Change" @click-function="updateVideo" />
     </div>
-    <iframe :src="videoUrl" width="300" height="200" frameborder="0"></iframe>
+    <iframe :src="videoUrl" frameborder="0"></iframe>
   </div>
 </template>
 
@@ -35,6 +40,7 @@ function updateVideo() {
     const videoId = getVideoId()
     videoUrl.value = `https://www.youtube-nocookie.com/embed/${videoId}`
     localStorage.setItem('videoUrl', videoUrl.value)
+    newVideoUrl.value = ''
   } catch (error) {
     alert('Url inválida!')
   }
@@ -58,6 +64,8 @@ function updateVideo() {
 }
 
 iframe {
+  width: 300px;
+  height: 200px;
   border-radius: 4px;
 }
 </style>

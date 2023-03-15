@@ -9,11 +9,7 @@
     <div class="timer-container">
       <h1>{{ timerTitle }}</h1>
       <p>{{ formattedTime }}</p>
-      <Button
-        v-if="!isTimerRunning && !isRestRunning"
-        title="Start"
-        @click-function="startTimer"
-      />
+      <Button v-if="!isTimerRunning && !isRestRunning" title="Start" @click-function="startTimer" />
       <Button v-if="isTimerRunning || isRestRunning" title="Reset" @click-function="resetTimer" />
     </div>
 
