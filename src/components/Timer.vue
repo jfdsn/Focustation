@@ -9,25 +9,33 @@
     <div class="timer-container">
       <h1>{{ timerTitle }}</h1>
       <p>{{ formattedTime }}</p>
-      <Button v-if="!isTimerRunning && !isRestRunning" title="Start" @click-function="startTimer" />
-      <Button v-if="isTimerRunning || isRestRunning" title="Reset" @click-function="resetTimer" />
+      <Button
+        v-if="!timerState.isTimerRunning && !timerState.isRestRunning"
+        title="Start"
+        @click-function="startTimer"
+      />
+      <Button
+        v-if="timerState.isTimerRunning || timerState.isRestRunning"
+        title="Reset"
+        @click-function="resetTimer"
+      />
     </div>
 
     <div class="range-container">
       <label for="vol">Work: {{ work }}min</label>
       <input
         v-model="work"
-        :disabled="isTimerRunning || isRestRunning"
+        :disabled="timerState.isTimerRunning || timerState.isRestRunning"
         type="range"
         name="work"
-        min="15"
+        min="25"
         max="60"
       />
 
       <label for="rest">Rest: {{ rest }}min</label>
       <input
         v-model="rest"
-        :disabled="isTimerRunning || isRestRunning"
+        :disabled="timerState.isTimerRunning || timerState.isRestRunning"
         type="range"
         name="rest"
         min="5"
@@ -44,6 +52,7 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import Button from './Button.vue'
+import { timerState } from '../stores/timerState'
 
 const work = ref(45)
 const rest = ref(15)
@@ -51,8 +60,6 @@ const pomodoroDuration = ref(45 * 60) //default 45 minutes in seconds
 const restDuration = ref(15 * 60) //default 15 minutes in seconds
 
 const timeElapsed = ref(0)
-const isTimerRunning = ref(false)
-const isRestRunning = ref(false)
 
 const timerTitle = ref('Work')
 const formattedTime = ref('00:00')
@@ -66,19 +73,19 @@ onMounted(() => {
 
 const startTimer = () => {
   timerTitle.value = 'Work'
-  isTimerRunning.value = true
+  timerState.isTimerRunning = true
 }
 
 const resetTimer = () => {
   timerTitle.value = 'Work'
-  isTimerRunning.value = false
-  isRestRunning.value = false
+  timerState.isTimerRunning = false
+  timerState.isRestRunning = false
   timeElapsed.value = 0
 }
 
 const startRest = () => {
   timerTitle.value = 'Rest'
-  isRestRunning.value = true
+  timerState.isRestRunning = true
 }
 
 watch(timeElapsed, (newValue) => {
@@ -104,29 +111,30 @@ const playAudio = () => {
 }
 
 setInterval(() => {
-  if (isTimerRunning.value) {
+  if (timerState.isTimerRunning) {
     timeElapsed.value += 1
 
     if (timeElapsed.value >= pomodoroDuration.value) {
-      isTimerRunning.value = false
+      timerState.isTimerRunning = false
       timeElapsed.value = 0
 
       playAudio()
 
-      if (!isRestRunning.value) {
+      if (!timerState.isRestRunning) {
         startRest()
       }
     }
   }
 
-  if (isRestRunning.value) {
+  if (timerState.isRestRunning) {
     timeElapsed.value += 1
 
     if (timeElapsed.value >= restDuration.value) {
-      isRestRunning.value = false
+      timerState.isRestRunning = false
       timeElapsed.value = 0
 
       playAudio()
+      timerTitle.value = 'Work'
     }
   }
 }, 1000)

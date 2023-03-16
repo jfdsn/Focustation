@@ -1,6 +1,4 @@
 /* color palette from <https://github.com/vuejs/theme> */
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
-
 :root {
   --vt-c-white: #0f0e0f;
   --vt-c-white-soft: #f8f8f8;
@@ -67,10 +65,19 @@ body {
   background: linear-gradient(to top, var(--color-background), var(--vt-c-black-soft));
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Kalam', 'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+  font-family: 'Segoe UI', Roboto, Inter, -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 1500px) {
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('./abstract-background.jpg');
+    background-position: fixed;
+    background-size: cover;
+  }
 }

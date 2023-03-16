@@ -3,24 +3,23 @@
   - CatGenerator e Video.
 -->
 <template>
-  <div class="grid-container">
-    <div class="header-item">
-      <Header />
+  <Layout>
+    <div class="grid-container">
+      <div class="left-item">
+        <Timer />
+        <ScheduleList />
+      </div>
+      <div class="right-item">
+        <CatGenerator />
+        <Video />
+      </div>
     </div>
-    <div class="left-item">
-      <Timer />
-      <ScheduleList />
-    </div>
-    <div class="right-item">
-      <CatGenerator />
-      <Video />
-    </div>
-  </div>
-  <ReturnTopBtn />
+    <ReturnTopBtn />
+  </Layout>
 </template>
 
 <script setup>
-import Header from '../components/Header.vue'
+import Layout from '../layouts/Layout.vue'
 import Video from '../components/Video.vue'
 import CatGenerator from '../components/CatGenerator.vue'
 import ScheduleList from '../components/ScheduleList.vue'
@@ -33,9 +32,7 @@ import ReturnTopBtn from '../components/ReturnTopBtn.vue'
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    'cima cima'
-    'esquerda direita';
+  grid-template-areas: 'esquerda direita';
   justify-items: center;
   gap: 1rem;
   height: 100%;

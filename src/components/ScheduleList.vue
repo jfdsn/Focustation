@@ -44,6 +44,7 @@ onMounted(() => {
 })
 
 const saveSchedule = () => {
+  if (newSchedule.value == '') return
   scheduleList.value.push({
     id: id++,
     schedule: newSchedule.value

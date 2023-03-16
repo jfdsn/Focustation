@@ -24,4 +24,10 @@ defineEmits(['remove'])
   gap: 10px;
   font-size: 16px;
 }
+
+@media (max-width: 500px) {
+  .li-container {
+    font-size: 14px;
+  }
+}
 </style>

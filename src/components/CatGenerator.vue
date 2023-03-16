@@ -6,14 +6,16 @@
 <template>
   <div class="cat-container">
     <img v-if="catUrl == 'error'" class="cat-img" src="./imgs/cat-error.png" />
+    <img v-else-if="timerState.isTimerRunning" class="cat-img" src="./imgs/cat-focus.png" />
     <img v-else class="cat-img" :src="catUrl.file" />
-    <Button title="Meow!" @click-function="getCat"></Button>
+    <Button title="Meow!" @click-function="getCat" :disabled="timerState.isTimerRunning" />
   </div>
 </template>
 
 <script setup>
 import { onBeforeMount, ref } from 'vue'
 import Button from './Button.vue'
+import { timerState } from '../stores/timerState'
 
 const catUrl = ref('')
 

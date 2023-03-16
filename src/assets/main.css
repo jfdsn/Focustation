@@ -1,8 +1,10 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
+  max-width: 1380px;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 1rem;
+  background: linear-gradient(to top, var(--color-background), var(--vt-c-black-soft));
   font-weight: normal;
 }

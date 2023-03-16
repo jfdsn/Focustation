@@ -26,4 +26,9 @@ button {
 button:hover {
   background-color: #963903;
 }
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
 </style>
