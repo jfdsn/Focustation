@@ -48,7 +48,7 @@ A aplicação irá abrir na porta 5173. Acesse localhost:5173 para visualizá-la
 
 ## :link: Créditos
 
-- `Random.cat Api`: https://aws.random.cat/meow
+- `The cat Api`: https://thecatapi.com/
 - `Documentação Vue`: https://vuejs.org/guide/introduction.html
 
 ## :smile: Autor

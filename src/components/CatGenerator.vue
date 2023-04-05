@@ -1,13 +1,13 @@
 <!-- 
   - Componente responsável por renderizar uma imagem baseado no consumo
-  - de uma API(random cat). Composto por uma tag img e um botão com a
+  - de uma API(the cat api). Composto por uma tag img e um botão com a
   - função de buscar uma nova imagem na API.
  -->
 <template>
   <div class="cat-container">
     <img v-if="catUrl == 'error'" class="cat-img" src="./imgs/cat-error.png" />
     <img v-else-if="timerState.isTimerRunning" class="cat-img" src="./imgs/cat-focus.png" />
-    <img v-else class="cat-img" :src="catUrl.file" />
+    <img v-else class="cat-img" :src="catUrl[0].url" />
     <Button title="Meow!" @click-function="getCat" :disabled="timerState.isTimerRunning" />
   </div>
 </template>
@@ -17,7 +17,7 @@ import { onBeforeMount, ref } from 'vue'
 import Button from './Button.vue'
 import { timerState } from '../stores/timerState'
 
-const catUrl = ref('')
+const catUrl = ref([{url: ''}])
 
 onBeforeMount(async () => {
   await getCat()
@@ -25,7 +25,7 @@ onBeforeMount(async () => {
 
 const getCat = async () => {
   try {
-    const response = await fetch('https://aws.random.cat/meow')
+    const response = await fetch('https://api.thecatapi.com/v1/images/search')
     catUrl.value = await response.json()
   } catch (error) {
     catUrl.value = 'error'
