@@ -59,18 +59,6 @@ import ReturnTopBtn from '../components/ReturnTopBtn.vue'
   grid-area: esquerda;
 }
 
-.up-arrow {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #d14f04;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-
-  visibility: hidden;
-}
-
 @media (max-width: 850px) {
   .grid-container {
     grid-template-areas:
@@ -81,10 +69,6 @@ import ReturnTopBtn from '../components/ReturnTopBtn.vue'
   .right-item {
     row-gap: 1rem;
     flex-direction: column-reverse;
-  }
-
-  .up-arrow {
-    visibility: visible;
   }
 }
 </style>
