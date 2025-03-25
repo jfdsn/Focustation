@@ -1,5 +1,6 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  /* Base colors */
   --vt-c-white: #0f0e0f;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -10,46 +11,62 @@
 
   --vt-c-indigo: #2c3e50;
 
+  /* Accent colors for gradients */
+  --vt-c-accent-1: #2c3e50;
+  --vt-c-accent-2: #1a1a1a;
+  --vt-c-accent-3: #2a2a2a;
+
+  /* Divider colors */
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
+  /* Text colors */
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white-soft);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
 
-/* semantic color variables for this project */
+/* Semantic color variables */
 :root {
+  /* Background colors */
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
 
+  /* Border colors */
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
 
+  /* Text colors */
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-dark-1);
 
+  /* Layout */
   --section-gap: 160px;
 }
 
+/* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Background colors */
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
 
+    /* Border colors */
     --color-border: var(--vt-c-divider-dark-2);
     --color-border-hover: var(--vt-c-divider-dark-1);
 
+    /* Text colors */
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
 }
 
+/* Base styles */
 *,
 *::before,
 *::after {
@@ -62,22 +79,99 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: linear-gradient(to top, var(--color-background), var(--vt-c-black-soft));
+  background: linear-gradient(135deg, var(--color-background), var(--vt-c-black-soft));
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Segoe UI', Roboto, Inter, -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.011em;
 }
 
+/* Typography scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  line-height: 1.7;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Enhanced background for larger screens */
 @media (min-width: 1500px) {
   body {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-      url('./abstract-background.jpg');
-    background-position: fixed;
-    background-size: cover;
+    background: 
+      linear-gradient(135deg, var(--color-background), var(--vt-c-black-soft)),
+      radial-gradient(circle at 50% 50%, var(--vt-c-accent-1) 0%, transparent 50%),
+      radial-gradient(circle at 0% 0%, var(--vt-c-accent-2) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, var(--vt-c-accent-3) 0%, transparent 50%);
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+    pointer-events: none;
+    z-index: 0;
   }
 }

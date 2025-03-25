@@ -67,23 +67,53 @@ watch(
 .schedule-list-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 30px;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  width: 100%;
 }
+
 .input-container {
   display: flex;
   justify-content: center;
-  gap: 5px;
-}
-.list-area {
-  padding: 16px;
+  gap: 0.5rem;
   width: 100%;
+  padding: 0 1rem;
+}
+
+.list-area {
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 @media (max-width: 850px) {
   .schedule-list-container {
     border-bottom: 1px groove #f8f8f8;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
+  }
+
+  .input-container {
+    padding: 0 0.5rem;
+  }
+
+  .list-area {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-list-container {
+    padding-top: 1rem;
+  }
+
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-area {
+    padding: 0.25rem;
   }
 }
 </style>
