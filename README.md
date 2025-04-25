@@ -10,6 +10,7 @@
 O Focustation é um aplicativo simples desenvolvido com Vue.js, Composition API e CSS3. Seu objetivo é ajudar os usuários a se concentrarem em seus estudos/trabalhos, criando uma estação de trabalho. Ele inclui um timer baseado na técnica Pomodoro, uma área para listar tarefas, outra área com um vídeo do YouTube e um gerador de imagens de gatinhos, usando uma API de terceiros.
 
 ![Imagem Focustation](https://github.com/jfdsn/Focustation/blob/main/public/Imgs/fullapp.png)
+![Imagem Focustation](https://github.com/jfdsn/Focustation/blob/main/public/Imgs/focustime.png)
 
 
 ##  :hammer: Funcionalidades
